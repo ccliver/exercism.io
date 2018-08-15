@@ -1,21 +1,18 @@
 package hamming
 
 import (
-  "strings"
   "errors"
 )
 
 func Distance(a, b string) (int, error) {
   distance := 0
-  nucleotidesA := strings.Split(a, "")
-  nucleotidesB := strings.Split(b, "")
 
   if len(a) != len(b) {
     return -1, errors.New("Strings not equal length")
   }
 
-  for idx, _ := range nucleotidesA {
-    if nucleotidesA[idx] != nucleotidesB[idx] {
+  for idx, _ := range a {
+    if a[idx] != b[idx] {
       distance += 1
     }
   }

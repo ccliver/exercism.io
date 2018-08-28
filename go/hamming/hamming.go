@@ -4,6 +4,7 @@ import (
   "errors"
 )
 
+// Distance determines the Hamming difference between two DNA strands.
 func Distance(a, b string) (int, error) {
   distance := 0
 
@@ -11,9 +12,9 @@ func Distance(a, b string) (int, error) {
     return -1, errors.New("Strings not equal length")
   }
 
-  for idx, _ := range a {
+  for idx := range a {
     if a[idx] != b[idx] {
-      distance += 1
+      distance++
     }
   }
 

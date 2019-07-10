@@ -20,6 +20,7 @@ func ConcurrentFrequency(words []string) FreqMap {
 	maps := FreqMap{}
 	mapBuf := make(chan FreqMap, len(words))
 	var wg sync.WaitGroup
+	wg.Add(len(words))
 
 	callFrequency := func(str string) {
 		mapBuf <- Frequency(str)
@@ -27,7 +28,6 @@ func ConcurrentFrequency(words []string) FreqMap {
 	}
 
 	for _, s := range words {
-		wg.Add(1)
 		go callFrequency(s)
 	}
 	wg.Wait()

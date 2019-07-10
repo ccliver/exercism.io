@@ -33,8 +33,7 @@ func ConcurrentFrequency(words []string) FreqMap {
 	wg.Wait()
 
 	close(mapBuf)
-	for i := 0; i < len(words); i++ {
-		m := <-mapBuf
+	for m := range mapBuf {
 		for k, v := range m {
 			if _, ok := maps[k]; ok {
 				maps[k] += v

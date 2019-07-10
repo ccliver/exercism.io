@@ -1,13 +1,14 @@
 package wordcount
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 )
 
+// Frequency records the number of times a word appears in a string.
 type Frequency map[string]int
 
+// WordCount counts the number of times a word appears in a string and returns a Frequency object containing the counts.
 func WordCount(in string) Frequency {
 	results := Frequency{}
 

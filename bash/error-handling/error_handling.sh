@@ -8,7 +8,7 @@ main() {
 	echo "Hello, $1"
 }
 
-if [ $# -ne 1 ]; then
+if (( $# != 1 )); then
 	usage
 	exit 1
 fi

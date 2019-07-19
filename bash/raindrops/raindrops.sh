@@ -17,4 +17,6 @@ main() {
 	fi
 }
 
+(( $# != 1 )) && usage && exit 1
+
 main "$1"
